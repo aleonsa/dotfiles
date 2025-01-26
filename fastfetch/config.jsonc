@@ -1,0 +1,131 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "source": "~/.config/fastfetch/fedora.png", // Cambia por la ruta a tu logo
+        "type": "kitty",
+        "height": 15,
+        "width": 30,
+        "padding": {
+            "top": 5,
+            "left": 3
+        }
+    },
+    "modules": [
+        "break",
+        {
+            "type": "custom",
+            "format": "\u001b[90m┌──────────────────────Hardware──────────────────────┐"
+        },
+        {
+            "type": "host",
+            "key": " Model",
+            "keyColor": "green"
+        },
+        {
+            "type": "cpu",
+            "key": "│ ├ CPU",
+            "format": "{name}",
+            "keyColor": "green"
+        },
+        {
+            "type": "cpu",
+            "key": "│ ├󰔛 Temperature",
+            "temp": true,
+            "format": "{temperature}",
+            "keyColor": "green"
+        },
+        {
+            "type": "gpu",
+            "key": "│ ├󰍛 GPU",
+            "format": "{name}",
+            "keyColor": "green"
+        },
+        {
+            "type": "memory",
+            "key": "│ ├󰍛 RAM",
+            "keyColor": "green"
+        },
+        {
+          "type": "disk",
+          "key": "└ └󰋊 Disk",
+          "folders": "/",
+          "keyColor": "green"
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+        },
+        "break",
+        {
+            "type": "custom",
+            "format": "\u001b[90m┌──────────────────────Software──────────────────────┐"
+        },
+        {
+            "type": "os",
+            "key": " OS",
+            "format": "{pretty-name} {version-id} {arch}",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "kernel",
+            "key": "│ ├ Kernel",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "wm",
+            "key": "│ ├ Window Manager",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "de",
+            "key": "└ └ Desktop Environment",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+        },
+        "break",
+        {
+            "type": "custom",
+            "format": "\u001b[90m┌───────────────────────Network──────────────────────┐"
+        },
+        {
+            "type": "localip",
+            "key": " LAN IP",
+            "showIpv6": false,
+            "showPrefixLen": false,
+            "keyColor": "blue"
+        },
+        {
+            "type": "publicip",
+            "key": "│ ├󰒕 WAN IP",
+            "timeout": 1000,
+            "keyColor": "blue"
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+        },
+        "break",
+        {
+            "type": "custom",
+            "format": "\u001b[90m┌─────────────────────Uptime / User──────────────────┐"
+        },
+        {
+            "type": "uptime",
+            "key": "祥 Uptime",
+            "keyColor": "magenta"
+        },
+        {
+            "type": "title",
+            "key": "└ └ User",
+            "format": "{user-name}@{host-name}",
+            "keyColor": "magenta"
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+        }
+    ]
+}
