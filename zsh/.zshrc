@@ -2,11 +2,10 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 # custom zsh config folder (change if necessary)
-export CUSTOM_ZSH_FOLDER="$HOME/.local/share/omarchy/default/zsh"
+export CUSTOM_ZSH_FOLDER="$HOME/dotfiles/zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-ZSH_THEME="jonathan"
+ZSH_THEME="arrow"
 
 plugins=(git zoxide tmux fzf)
 
@@ -30,6 +29,5 @@ source "$CUSTOM_ZSH_FOLDER/functions"
 source "$CUSTOM_ZSH_FOLDER/init"
 source "$CUSTOM_ZSH_FOLDER/envs"
 
-tmux-git-autofetch() {(/home/aleon/.tmux/plugins/tmux-git-autofetch/git-autofetch.tmux --current &)}
-add-zsh-hook chpwd tmux-git-autofetch
-    
+# tmux-git-autofetch() {(/home/aleon/.tmux/plugins/tmux-git-autofetch/git-autofetch.tmux --current &)}
+# add-zsh-hook chpwd tmux-git-autofetch
