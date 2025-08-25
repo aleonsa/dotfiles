@@ -1,0 +1,14 @@
+# History control
+#setopt HIST_IGNORE_BOTH_BLANKS    # Ignora líneas duplicadas y que empiecen con espacio
+setopt APPEND_HISTORY             # Equivalente a histappend
+setopt SHARE_HISTORY              # Comparte historial entre sesiones
+HISTSIZE=32768
+SAVEHIST="${HISTSIZE}"            # En zsh se usa SAVEHIST en lugar de HISTFILESIZE
+
+# Autocompletion
+autoload -Uz compinit
+compinit
+
+# Set complete path
+export PATH="./bin:$HOME/.local/bin:$PATH"
+set +h

@@ -1,0 +1,42 @@
+# Initialize mise (version manager)
+if command -v mise &> /dev/null; then
+  eval "$(mise activate zsh)"
+fi
+
+# Initialize zoxide (smart cd replacement)
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init zsh)"
+fi
+
+# Initialize fzf (fuzzy finder)
+if command -v fzf &> /dev/null; then
+  # Try different possible locations for fzf zsh files
+  if [[ -f /usr/share/fzf/completion.zsh ]]; then
+    source /usr/share/fzf/completion.zsh
+  elif [[ -f ~/.fzf/completion.zsh ]]; then
+    source ~/.fzf/completion.zsh
+  fi
+  
+  if [[ -f /usr/share/fzf/key-bindings.zsh ]]; then
+    source /usr/share/fzf/key-bindings.zsh
+  elif [[ -f ~/.fzf/key-bindings.zsh ]]; then
+    source ~/.fzf/key-bindings.zsh
+  fi
+fi
+
+# Auto-start ssh-agent
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent -t 1h > ~/.ssh-agent.env
+fi
+if [[ ! "$SSH_AUTH_SOCK" ]] && [[ -f ~/.ssh-agent.env ]]; then
+    source ~/.ssh-agent.env >/dev/null
+fi
+
+# Auto-add SSH key if not already added
+if ssh-add -l &>/dev/null; then
+    # Keys are loaded
+    :
+else
+    # No keys loaded, add default key
+    ssh-add ~/.ssh/id_ed25519 2>/dev/null
+fi
