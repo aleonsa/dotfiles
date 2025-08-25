@@ -1,6 +1,9 @@
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# custom zsh config folder (change if necessary)
+export CUSTOM_ZSH_FOLDER="$HOME/.local/share/omarchy/default/zsh"
+
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
 ZSH_THEME="jonathan"
@@ -20,12 +23,12 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 
-# modified bash config for zsh (from omarchy baseline)
-source ~/.local/share/omarchy/default/zsh/shell
-source ~/.local/share/omarchy/default/zsh/aliases
-source ~/.local/share/omarchy/default/zsh/functions
-source ~/.local/share/omarchy/default/zsh/init
-source ~/.local/share/omarchy/default/zsh/envs
+# modified bash config for zsh
+source "$CUSTOM_ZSH_FOLDER/shell"
+source "$CUSTOM_ZSH_FOLDER/aliases"
+source "$CUSTOM_ZSH_FOLDER/functions"
+source "$CUSTOM_ZSH_FOLDER/init"
+source "$CUSTOM_ZSH_FOLDER/envs"
 
 tmux-git-autofetch() {(/home/aleon/.tmux/plugins/tmux-git-autofetch/git-autofetch.tmux --current &)}
 add-zsh-hook chpwd tmux-git-autofetch
