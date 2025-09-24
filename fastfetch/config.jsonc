@@ -14,19 +14,18 @@
     },
     {
       "type": "host",
-      "key": " PC",
+      "key": " PC",
       "keyColor": "green"
     },
     {
       "type": "cpu",
-      "key": "│ ├",
+      "key": "│ ├",
       "showPeCoreCount": true,
       "keyColor": "green"
     },
     {
       "type": "gpu",
-      "key": "│ ├",
-      "detectionMethod": "pci",
+      "key": "│ ├󰇺",
       "keyColor": "green"
     },
     {
@@ -41,7 +40,7 @@
     },
     {
       "type": "memory",
-      "key": "│ ├",
+      "key": "│ ├",
       "keyColor": "green"
     },
     {
@@ -60,12 +59,12 @@
     },
     {
       "type": "os",
-      "key": "󰣇 OS",
+      "key": " OS",
       "keyColor": "yellow"
     },
     {
       "type": "kernel",
-      "key": "│ ├",
+      "key": "│ ├",
       "keyColor": "yellow"
     },
     {
@@ -75,24 +74,26 @@
     },
     {
       "type": "shell",
-      "key": "└ └",
+      "key": "└ └",
       "keyColor": "yellow"
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[90m└────────────────────────────────────────────────────┘"
     },
     "break",
     {
-      "type": "command",
-      "key": "│ ├Ø",
-      "keyColor": "blue",
-      "text": "version=$(git -C ~/.local/share/omarchy describe --tags --abbrev=0 2>/dev/null); echo \"Omarchy $version\""
+      "type": "custom",
+      "format": "\u001b[90m┌─────────────────────Interface──────────────────────┐"
     },
     {
       "type": "de",
-      "key": " DE",
+      "key": "󰄇 DE/WM",
       "keyColor": "blue"
     },
     {
       "type": "wm",
-      "key": "│ ├",
+      "key": "│ ├",
       "keyColor": "blue"
     },
     {
@@ -107,17 +108,17 @@
     },
     {
       "type": "cursor",
-      "key": "│ ├",
+      "key": "│ ├",
       "keyColor": "blue"
     },
     {
       "type": "terminalfont",
-      "key": "│ ├",
+      "key": "│ ├",
       "keyColor": "blue"
     },
     {
       "type": "terminal",
-      "key": "└ └",
+      "key": "└ └",
       "keyColor": "blue"
     },
     {
@@ -127,13 +128,7 @@
     "break",
     {
       "type": "custom",
-      "format": "\u001b[90m┌────────────────────Uptime / Age────────────────────┐"
-    },
-    {
-      "type": "command",
-      "key": "  OS Age ",
-      "keyColor": "magenta",
-      "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
+      "format": "\u001b[90m┌──────────────────────Uptime────────────────────────┐"
     },
     {
       "type": "uptime",

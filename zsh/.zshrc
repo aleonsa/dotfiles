@@ -5,7 +5,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export CUSTOM_ZSH_FOLDER="$HOME/dotfiles/zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="arrow"
+ZSH_THEME="af-magic"
 
 plugins=(git zoxide tmux fzf)
 
@@ -31,3 +31,5 @@ source "$CUSTOM_ZSH_FOLDER/envs"
 
 # tmux-git-autofetch() {(/home/aleon/.tmux/plugins/tmux-git-autofetch/git-autofetch.tmux --current &)}
 # add-zsh-hook chpwd tmux-git-autofetch
+
+export PATH="/opt/homebrew/bin:$PATH"

@@ -33,3 +33,9 @@ n() { if [ "$#" -eq 0 ]; then nvim .; else nvim "$@"; fi; }
 alias gcm='git commit -m'
 alias gcam='git commit -a -m'
 alias gcad='git commit -a --amend'
+
+# ripgrep
+alias rg='rg --color=always --line-number --column --smart-case --hidden --glob "!.git/*"'
+alias rgi='rg -i'                    # Ignorar mayúsculas/minúsculas
+alias rgc='rg -C 3'                  # Con 3 líneas de contexto
+alias rgl='rg -l'                    # Solo mostrar nombres de archivos

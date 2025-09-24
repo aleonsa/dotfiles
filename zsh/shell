@@ -12,3 +12,6 @@ compinit
 # Set complete path
 export PATH="./bin:$HOME/.local/bin:$PATH"
 set +h
+
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
