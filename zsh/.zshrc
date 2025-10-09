@@ -33,3 +33,10 @@ source "$CUSTOM_ZSH_FOLDER/envs"
 # add-zsh-hook chpwd tmux-git-autofetch
 
 export PATH="/opt/homebrew/bin:$PATH"
+
+# claude code with z.ai
+export ANTHROPIC_BASE_URL=https://api.z.ai/api/anthropic
+# Source local secrets file if it exists
+if [[ -f ~/.zsh_secrets ]]; then
+  source ~/.zsh_secrets
+fi
