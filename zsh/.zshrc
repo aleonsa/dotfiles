@@ -40,3 +40,8 @@ export ANTHROPIC_BASE_URL=https://api.z.ai/api/anthropic
 if [[ -f ~/.zsh_secrets ]]; then
   source ~/.zsh_secrets
 fi
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/aleon/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions

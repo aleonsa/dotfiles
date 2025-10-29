@@ -149,3 +149,42 @@ pdfs() {
         nohup zathura $files &
     fi
 }
+
+# Función para construir y subir imágenes Docker de Cheo (Versión de Depuración)
+# Uso: docker_cheo <nombre-de-la-imagen>
+# Ejemplo: docker_cheo cheo-obs-dev-12
+docker_cheo() {
+  if [ -z "$1" ]; then
+    echo "❌ Error: Debes proporcionar un nombre de imagen."
+    echo "👉 Uso: docker_cheo <nombre-imagen>"
+    return 1
+  fi
+
+  # 2. Configurar el nombre completo de la imagen
+  local IMAGE_TAG="aleonsa/$1"
+
+  # --- INICIO DE LA SECCIÓN DE DEPURACIÓN ---
+  echo ">>> Variable IMAGE_TAG construida: '$IMAGE_TAG'"
+  echo ">>> Presiona Enter para continuar con 'docker build'..."
+  read # Pausa el script para que puedas ver el valor
+  # --- FIN DE LA SECCIÓN DE DEPURACIÓN ---
+
+  echo "📦 1/2 Construyendo la imagen Docker..."
+  docker build --platform linux/amd64 -t "$IMAGE_TAG" .
+
+  if [ $? -ne 0 ]; then
+    echo "❌ ERROR: El comando 'docker build' falló."
+    return 1
+  fi
+
+  echo "⬆️  2/2 Subiendo la imagen al registro (Docker Hub)..."
+  docker push "$IMAGE_TAG"
+
+  if [ $? -ne 0 ]; then
+    echo "❌ ERROR: El comando 'docker push' falló."
+    return 1
+  fi
+
+  echo "--------------------------------------------------"
+  echo "✅ ¡Proceso completado con éxito!"
+}
