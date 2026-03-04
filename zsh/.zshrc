@@ -34,8 +34,6 @@ source "$CUSTOM_ZSH_FOLDER/envs"
 
 export PATH="/opt/homebrew/bin:$PATH"
 
-# claude code with z.ai
-export ANTHROPIC_BASE_URL=https://api.z.ai/api/anthropic
 # Source local secrets file if it exists
 if [[ -f ~/.zsh_secrets ]]; then
   source ~/.zsh_secrets
@@ -45,3 +43,20 @@ fpath=(/Users/aleon/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
+
+# bun completions
+[ -s "/Users/aleon/.bun/_bun" ] && source "/Users/aleon/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/aleon/.antigravity/antigravity/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/aleon/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/aleon/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/aleon/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/aleon/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
